@@ -38,16 +38,16 @@ def load_data(file_path="data/AirQualityUCI.csv"):
 def clean_data(df):
     """
     Clean the air quality dataset by handling missing values and data types.
-    
+
     Args:
         df (pd.DataFrame): Raw dataset
-        
+
     Returns:
         pd.DataFrame: Cleaned dataset
     """
     if df is None:
         return None
-    
+
     # Create a copy to avoid modifying the original
     df_clean = df.copy()
     
@@ -79,7 +79,7 @@ def clean_data(df):
             # Replace comma with dot for decimal separator
             df_clean[col] = df_clean[col].astype(str).str.replace(',', '.')
             df_clean[col] = pd.to_numeric(df_clean[col], errors='coerce')
-    
+
     return df_clean
 
 
